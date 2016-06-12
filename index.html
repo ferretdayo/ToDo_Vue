@@ -2,15 +2,20 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>タイトル</title>
+    <title>VueのTODO</title>
     <link href="/css/style.css" rel="stylesheet">
+    <script src="/js/index.js"></script>
   </head>
   <body>
-    <div id="header"></div>
-    <div id="navigation"></div>
-    <div id="content">
-      <h1>helloWorld!</h1>
+    <div id="app">
+      <input v-model="newTodo" v-on:keyup.enter="addTodo">
+      <ul>
+        <li v-for="todo in todos"><span>{{ todo.text }}</span>
+          <button v-on:click="removeTodo($index)">×</button>
+        </li>
+      </ul>
     </div>
-    <div id="footer"></div>
+    <script type="text/javascript" src="/node_modules/vue/dist/vue.min.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
   </body>
 </html>
